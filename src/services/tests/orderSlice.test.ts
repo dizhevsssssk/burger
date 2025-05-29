@@ -77,9 +77,21 @@ describe('orderSlice reducers and async thunks', () => {
   });
 
   test('clearOrderData reducer resets orderData to null', () => {
-    const stateWithOrder = { ...initialState, orderData: { _id: 'temp' } };
+    const mockOrder = {
+      _id: 'temp',
+      status: 'done',
+      name: 'Test Burger',
+      createdAt: '2025-05-29T10:00:00Z',
+      updatedAt: '2025-05-29T10:01:00Z',
+      number: 1,
+      price: 500,
+      ingredients: []
+    };
+
+    const stateWithOrder = { ...initialState, orderData: mockOrder };
     const newState = orderReducer(stateWithOrder, clearOrderData());
 
     expect(newState.orderData).toBeNull();
   });
+
 });
