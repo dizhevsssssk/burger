@@ -18,7 +18,7 @@ interface IUserState {
   error: string | null;
 }
 
-const initialState: IUserState = {
+export const initialState: IUserState = {
   userData: null,
   isAuth: false,
   loading: false,
@@ -101,6 +101,7 @@ export const userSlice = createSlice({
         state.isAuth = true;
         state.userData = action.payload.user;
       })
+
       .addCase(registerUser.pending, (state) => {
         state.loading = true;
       })
@@ -113,6 +114,7 @@ export const userSlice = createSlice({
         state.loading = false;
         state.userData = action.payload;
       })
+
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
       })
@@ -125,6 +127,7 @@ export const userSlice = createSlice({
         state.loading = false;
         state.userData = action.payload;
       })
+
       .addCase(logoutUser.pending, (state) => {
         state.loading = true;
       })
@@ -137,6 +140,7 @@ export const userSlice = createSlice({
         state.loading = false;
         state.userData = null;
       })
+
       .addCase(updateUser.pending, (state) => {
         state.loading = true;
       })
