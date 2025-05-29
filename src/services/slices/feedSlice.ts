@@ -15,7 +15,7 @@ interface IFeedState {
   isLoading: boolean;
 }
 
-const initialState: IFeedState = {
+export const initialState: IFeedState = {
   orders: [],
   total: 0,
   totalToday: 0,
